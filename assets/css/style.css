@@ -1,0 +1,378 @@
+
+/*Default css*/
+
+/*------------------------------------------------------------------
+
+Template Name: Registration Form Wizard - Ajax Based Multistep Registration Form
+Template Description: Registration Form Wizard is a Multistep Responsive form wizard. It's Bootstrap based PHP form with full Ajax support. It can be easily customized as it is well documented and developed using latest web technologies. This form will be a perfect choice for all registration based websites.
+Version: 1.0
+Author: Coderheat
+-------------------------------------------------------------------*/
+
+
+/*==========================================
+
+[TABLE OF CONTENTS]
+
+    1. Default Styles
+    2. Form Styles
+
+======================================*/
+
+/*===================
+ 1. Default Styles 
+================================*/
+
+@import url('https://fonts.googleapis.com/css?family=Oswald|Roboto|Roboto+Condensed');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+    color: #333333;
+     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    background-size:cover;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #232323;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+input.invalid, select.invalid, textarea.invalid {
+  background-color: #ffdddd;
+}
+
+/*remove chrome autofill yellow background*/
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+
+/*-----------------------------
+ 2. Form Styles 
+-------------------------------*/
+
+/* 2.1 Form Content Area */
+
+.form_content {
+  background:#ffffff;
+  border: 1px solid #ccc;
+  margin: 3% auto;
+  padding: 2% 4% 5%;
+  width: 80%;
+}
+
+.form_content .text-success {
+    border: 1px solid green;
+    color: #333333;
+    font-size: 16px;
+    padding: 15px 25px;
+    line-height: 1.2;
+    color: green;
+}
+
+.form_content .text-danger {
+    border: 1px solid #E7272D;
+    font-size: 16px;
+    padding: 15px 25px;
+    line-height: 1.2;
+}
+
+.loan-text {
+    float: right;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.tab {
+  display: none;
+}
+
+.top-area {
+  border-bottom: 1px dashed #ccc;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+}
+
+/* 2.2 Form Input Related CSS */
+
+.main-form-area .fa {
+    padding-right:10px;
+}
+
+.main-form-area input {
+    border-radius: 0px;
+    height: 45px;
+    padding: 10px;
+    width: 100%;
+}
+
+.main-form-area label {
+    font-weight:bold;
+    text-transform: uppercase;
+}
+
+.main-form-area select {
+    box-sizing: border-box;
+    font-family: Oswald, sans-serif;
+    height: 45px;
+    max-width: 100%;
+    min-width: 100%;
+    outline: none;
+    padding: 10px 15px;
+    padding-left: 15px;
+    text-indent: 0.01px;
+    text-overflow: "";
+    width: 100%;
+}
+
+.main-form-area textarea {
+    border-radius: 0px;
+    padding: 10px;
+    width: 100%;
+}
+
+
+
+/* 2.3 Form Button Related CSS */
+
+.button-area {
+    float:right;
+    overflow:auto;
+}
+
+.button-area button {
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 17px;
+  margin: 10px auto 0;
+  padding: 8px 20px 10px;
+}
+
+.button-area button:hover {
+  opacity: 0.8;
+}
+
+.form-step-button {
+    margin-top:40px;
+    text-align:center;
+}
+
+#prevBtn {
+  background-color: #bbbbbb;
+}
+
+.step {
+    background-color: #bbbbbb;
+    border: none;
+    display: inline-block;
+    height: 5px;
+    margin: 0 2px;
+    opacity: 0.5;
+    width: 5px;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+.step.finish {
+  background-color: #E7272D;
+}
+
+.user_profile_image {
+    height: 50px;
+    width: 50px;
+}
+
+
+/* 2.4 Form widget Related CSS */
+
+
+/*progressbar*/
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    counter-reset: step;
+    position: relative;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: space-between;
+}
+#progressbar li{
+    text-align: center;
+    
+}
+#progressbar li span {
+    border-radius: 49%;
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    position: relative;
+    color: #222;
+    line-height: 23px;
+    background: #ddd;
+    z-index: 2;
+    line-height: 48px;
+    font-weight: bold;
+}
+
+#progressbar li span:before {
+    content: counter(step);
+    counter-increment: step;
+}
+
+#progressbar li.active span:after {
+    content: "";
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background: #4788C7;
+    top: 5px;
+    left: 5px;
+    border-radius: 100%;
+    z-index: -1;
+}
+
+#progressbar li span::after {
+    content: "";
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background: #fff;
+    top: 5px;
+    left: 5px;
+    border-radius: 100%;
+    z-index: -1;
+}
+
+#progressbar li.active span{
+    background: #ddd;
+    color: white;
+}
+
+#progressbar li::after {
+    position: absolute;
+    background: #4788C7;
+    height: 5px;
+    content: "";
+    width: 100%;
+    top: 27%;
+    left: -47%;
+    z-index: 1;
+    transform: translate(50%);
+}
+
+.user_image {
+    border: 1px solid #ddd;
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+    border-radius: 100%;
+    position: absolute;
+    top: -82%;
+    left: 50%;
+    transform: translate(-50%,0%);
+    background: #fff;
+}
+
+.single_top_user_section {
+    border: 1px solid #ddd;
+    margin-top: 14%;
+    padding: 0 2%;
+}
+.image_area {
+    height: 102px;
+    position: relative;
+    width: 100%;
+}
+
+
+label.p_image {
+    display: block;
+    position: relative;
+    border-radius: 100%;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+}
+.p_image img{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%
+}
+
+label.p_image::before {
+    content: "";
+    position: absolute;
+    background: rgba(0,0,0,.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+label.p_image.before_none::before {
+    content: none; 
+}
+
+.p_img_text {
+    position: absolute;
+    color: #fff;
+    font-size: 14px;
+    vertical-align: middle;
+    top: 50%;
+    transform: translate(-7%, -56%);
+    left: 13%;
+}
+
+
+.p_img_text p {
+    padding: 0;
+    margin: 0;
+    line-height: 20px;
+}
+.fz-20{
+    font-size: 20px;
+}
+
+
+.loading_icon {
+  display: block;
+  font-size: 50px;
+  height: 150px;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  padding-top: 46px;
+}
+
+.sorry_text i {
+  font-size: 35px;
+}
+.sorry_text h3 {
+  margin: 0;
+  font-size: 20px;
+}
+.sorry_text {
+  padding: 32px;
+}
+.custom_btn {
+    padding: 10px 20px;
+    border-radius: 0;
+}
+.up_user_img.invalid{
+    border: 2px solid red;
+}
+
+span.error{
+    color:red;
+}
+
+
